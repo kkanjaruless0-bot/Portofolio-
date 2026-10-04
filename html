@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eunseorin | Portfolio</title>
+    <!-- Mengambil Font Aesthetic dari Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS: Tema Aesthetic Pink --- */
+        :root {
+            --bg-color: #fff0f5; /* Lavender Blush */
+            --card-bg: #ffffff;
+            --primary-pink: #ffb7c5; /* Cherry Blossom Pink */
+            --deep-pink: #db7093; /* Pale Violet Red untuk teks penting */
+            --text-main: #5d4037; /* Coklat tua agar kontrasnya lembut */
+            --text-light: #8d6e63;
+            --shadow: 0 10px 30px rgba(219, 112, 147, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--deep-pink);
+        }
+
+        /* Navigasi Glassmorphism */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(255, 240, 245, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 183, 197, 0.3);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--deep-pink);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at top right, #ffe4e1, transparent);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .btn-aesthetic {
+            padding: 12px 30px;
+            background: linear-gradient(45deg, var(--primary-pink), var(--deep-pink));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(219, 112, 147, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1.4s ease-out;
+        }
+
+        .btn-aesthetic:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(219, 112, 147, 0.6);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-pink);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Grid Proyek */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.4s;
+            border: 1px solid #fff;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-pink);
+        }
+
+        .card-img {
+            height: 220px;
+            background-color: #fce4ec;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--deep-pink);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+        }
+
+        .card-info {
+            padding: 2rem;
+        }
+
+        .card-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tags span {
+            font-size: 0.75rem;
+            background: #fff0f5;
+            color: var(--deep-pink);
+            padding: 5px 12px;
+            border-radius: 15px;
+            margin-right: 5px;
+            border: 1px solid var(--primary-pink);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid #ffe4e1;
+        }
+
+        /* Animasi */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Bisa ditambahkan hamburger menu nanti */
+            section { padding: 4rem 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav>
+        <div class="logo">Eunseorin.</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#works">Works</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>Halo, Aku Eunseorin</h1>
+        <p>Menciptakan keindahan melalui kode dan desain. Selamat datang di dunia digital kecilku yang serba pink.</p>
+        <a href="#works" class="btn-aesthetic">Lihat Karyaku ✨</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">Tentang Aku</h2>
+        <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+            <p>Aku adalah seorang kreator yang menyukai hal-hal minimalis dan aesthetic. Fokus utamaku adalah membangun website yang tidak hanya berfungsi dengan baik, tapi juga enak dipandang mata. Aku percaya bahwa setiap piksel memiliki cerita.</p>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works">
+        <h2 class="section-title">Karya Pilihan</h2>
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="card-img">Beauty Blog</div>
+                <div class="card-info">
+                    <h3>Glow & Co.</h3>
+                    <p>Blog kecantikan dengan tata letak majalah yang elegan.</p>
+                    <div class="tags">
+                        <span>UI/UX</span>
+                        <span>WordPress</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="card-img">Online Shop</div>
+                <div class="card-info">
+                    <h3>Pink Boutique</h3>
+                    <p>Toko online fashion wanita dengan fitur checkout yang mulus.</p>
+                    <div class="tags">
+                        <span>React</span>
+                        <span>Stripe</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="card-img">Mobile App</div>
+                <div class="card-info">
+                    <h3>Daily Planner</h3>
+                    <p>Aplikasi produktivitas dengan tema pastel yang menenangkan.</p>
+                    <div class="tags">
+                        <span>Figma</span>
+                        <span>Prototyping</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: white;">
+        <h2 class="section-title">Mari Berkolaborasi</h2>
+        <div style="text-align: center;">
+            <p style="margin-bottom: 2rem;">Punya ide menarik? Jangan ragu untuk menyapa!</p>
+            <a href="mailto:eunseorin@example.com" class="btn-aesthetic">Kirim Email 💌</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Eunseorin. Dibuat dengan ❤️ dan secangkir teh.</p>
+    </footer>
+
+    <script>
+        // Efek Scroll Reveal Sederhana
+        window.addEventListener('scroll', reveal);
+
+        function reveal(){
+            var reveals = document.querySelectorAll('.project-card');
+
+            for(var i = 0; i < reveals.length; i++){
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 150;
+
+                if(revealtop < windowheight - revealpoint){
+                    reveals[i].style.opacity = '1';
+                    reveals[i].style.transform = 'translateY(0)';
+                }
+            }
+        }
+    </script>
+</body>
+  </html>
+                      
